@@ -1,0 +1,24 @@
+name: Bot de Mercado Diario
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Roda de hora em hora
+  workflow_dispatch:      # Botao para rodar na hora que voce quiser
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar codigo do GitHub
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar bibliotecas
+        run: pip install yfinance requests
+
+      - name: Rodar o Bot
+        run: python main.py
