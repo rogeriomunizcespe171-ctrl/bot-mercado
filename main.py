@@ -1,4 +1,4 @@
-main.py
+
 import yfinance as yf
 import requests
 from datetime import datetime
